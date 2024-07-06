@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'SF-Regular';
+  src: url("/assets/fonts/sf-pro/SF-Pro-Display-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'SF-Medium';
+  src: url("/assets/fonts/sf-pro/SF-Pro-Display-Medium.otf") format("opentype");
+}
+
 @layer components {
-  
+  html, body {
+    @apply text-sm;
+    @apply font-sf-regular;
+  }
+
+  .my-container {
+    width: 1520px;
+    margin: 0 auto;
+  }
 }

@@ -18,11 +18,9 @@ const loading = ref(false)
 
 nuxtApp.hook("page:start", () => {
   loading.value = true;
-  console.log('true')
 })
 
 nuxtApp.hook("page:finish", () => {
   loading.value = false;
-  console.log('false')
 })
 </script>
