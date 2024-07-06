@@ -1,6 +1,6 @@
 <template>
-  <div class="border-b-[1px] border-black border-opacity-20 fixed z-10 w-full">
-    <div class="my-container backdrop-blur-2xl">
+  <div class="border-b-[1px] border-black border-opacity-20 backdrop-blur-2xl fixed z-[100] w-full">
+    <div class="my-container">
       <div class="flex justify-between items-center p-5">
         <div>
           <logo-green/>
@@ -22,6 +22,8 @@
 </template>
 
 <script setup lang="ts">
+import BtnPrimary from "./ui/BtnPrimary.vue";
+import LogoGreen from "./ui/LogoGreen.vue";
 
 </script>
 

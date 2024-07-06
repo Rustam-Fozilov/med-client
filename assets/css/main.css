@@ -16,6 +16,7 @@
   html, body {
     @apply text-sm;
     @apply font-sf-regular;
+    /*height: 2000px;*/
   }
 
   .my-container {

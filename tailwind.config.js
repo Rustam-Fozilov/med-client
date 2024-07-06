@@ -29,7 +29,7 @@ export default {
       'xl': '32px',
       '2xl': '46px',
       '3xl': '48px',
-      '4xl': '72px',
+      '4xl': '62px',
     },
     fontFamily: {
       'sf-regular': ["SF-Regular", "sans-serif", "monospace", "system-ui", "ui-sans-serif", "ui-serif", "sans-serif", "apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
@@ -44,6 +44,8 @@ export default {
       'sm': {'max': '640px'},
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animate")
+  ],
 }
 

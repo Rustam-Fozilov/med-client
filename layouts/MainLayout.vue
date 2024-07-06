@@ -2,7 +2,7 @@
   <div>
     <the-navbar/>
 
-    <div class="pt-24">
+    <div class="">
       <slot/>
     </div>
 
