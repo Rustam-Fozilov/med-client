@@ -1,5 +1,5 @@
 <template>
-  <div class="border-b-[1px] border-black border-opacity-20 backdrop-blur-2xl fixed z-[100] w-full">
+  <div class="border-b-[1px] border-black border-opacity-20 bg-white bg-opacity-20 backdrop-blur-2xl fixed z-[100] w-full">
     <div class="my-container">
       <div class="flex justify-between items-center p-5">
         <div>

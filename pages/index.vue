@@ -8,7 +8,7 @@
       <about-us/>
     </div>
 
-    <div>
+    <div class="bg-soft-white">
       <doctors/>
     </div>
   </div>

@@ -15,8 +15,8 @@
           <br><br>
           Vivamus pellentesque purus non nibh convallis pretium. Phasellus lectus felis, pellentesque laoreet tortor vel, scelerisque malesuada augue. Curabitur vel diam venenatis, posuere nisl nec, egestas lorem. Maecenas vitae aliquet nisi, vel pharetra leo. Integer porta, eros eu iaculis venenatis, mi mauris semper ligula, non blandit enim lacus sit amet mauris. Nam eget tempor lorem, eget sodales dolor. Praesent ultricies enim blandit, varius massa sed, tincidunt ante. Morbi sit amet eleifend elit. Suspendisse sed tristique sapien. Pellentesque orci leo, efficitur a mattis sed, sollicitudin in ex.
         </div>
-        <div class="mt-10">
-          <img src="/assets/images/main/about-us.png" alt="About us">
+        <div class="mt-10 w-full">
+          <img class="w-full h-full object-cover" src="/assets/images/main/about-us.png" alt="About us">
         </div>
       </div>
     </div>
