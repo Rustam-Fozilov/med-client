@@ -9,31 +9,35 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis metus aliquet, suscipit odio id, sodales elit. Sed id est vel dolor pulvinar efficitur. Cras finibus dictum felis, et volutpat purus .
         </div>
       </div>
-      <div>
-        <div class="p-10 w-[32%] h-80 bg-white rounded-md">
-          <div class="relative flex items-center">
-            <div class="absolute h-full right-0 bottom-0">
-              fdsa
+      <div class="flex justify-between gap-5 flex-wrap">
+        <div v-for="i in 4" class="w-[490px] flex h-80 bg-white rounded-md">
+          <div class="flex w-full justify-between">
+            <div class="h-full p-8 w-[40%]">
+              <div class="flex flex-col justify-between h-full w-full">
+                <div>
+                  <div class="text-[20px] leading-none">
+                    Akkiev Muhiddin Isomiddinovich
+                  </div>
+                  <div class="opacity-50 leading-none text-rg mt-3">
+                    Заведующий отделением лучевой диагностики
+                  </div>
+                </div>
+                <div class="opacity-50 text-rg">
+                  <div>+998 (99) 999-99-99</div>
+                  <div>Год рождение: 1985 г</div>
+                </div>
+              </div>
+            </div>
+            <div class="w-[60%] flex h-full items-end justify-end">
+              <img src="/assets/images/main/card-bg.png" alt="" class="w-full h-auto">
             </div>
           </div>
-          <div class="w-1/2 h-full flex flex-col justify-between">
-            <div>
-              <div class="text-md leading-none">
-                Akkiev Muhiddin Isomiddinovich
-              </div>
-              <div class="opacity-50 leading-none text-rg mt-3">
-                Заведующий отделением лучевой диагностики
-              </div>
-            </div>
-            <div class="opacity-50">
-              <div>+998 (99) 999-99-99</div>
-              <div>Год рождение: 1985 г</div>
-            </div>
-          </div>
-<!--          <div class="w-1/2 h-full flex items-end">-->
-<!--            <img class="w-full h-full object-cover" src="/assets/images/main/about-us.png" alt="">-->
-<!--          </div>-->
         </div>
+      </div>
+      <div>
+        <BtnSecondary class-name="w-full">
+          Barcha xodimlar
+        </BtnSecondary>
       </div>
     </div>
   </div>
