@@ -15,6 +15,10 @@
     <div id="services" class="bg-soft-white">
       <services/>
     </div>
+
+    <div id="contact">
+      <contact/>
+    </div>
   </div>
 </template>
 
@@ -23,6 +27,7 @@ import HeroSection from "~/components/main/HeroSection.vue";
 import AboutUs from "~/components/main/AboutUs.vue";
 import Doctors from "~/components/main/Doctors.vue";
 import Services from "~/components/main/Services.vue";
+import Contact from "~/components/main/Contact.vue";
 
 definePageMeta({
   layout: "main-layout"
