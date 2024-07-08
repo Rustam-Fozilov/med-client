@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div @click="gotoHome" class="cursor-pointer">
     <img :width="width" :height="height" src="/assets/images/brand/logo-tiffany.svg" alt="Logo">
   </div>
 </template>
 
 <script setup lang="ts">
+const router = useRouter();
 
 defineProps({
   width: {
@@ -16,6 +17,10 @@ defineProps({
     default: 'auto',
   }
 });
+
+const gotoHome = () => {
+  router.push('/');
+}
 
 </script>
 
