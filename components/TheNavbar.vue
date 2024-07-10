@@ -12,7 +12,7 @@
           <RouterLink to="#contact" class="hover:opacity-60 duration-300">Kontakt</RouterLink>
         </div>
         <div>
-          <btn-primary class="text-sm">
+          <btn-primary class="text-sm" @clicked="openEnrollmentModal">
             Qabulga yozilish
           </btn-primary>
         </div>
@@ -24,6 +24,12 @@
 <script setup lang="ts">
 import BtnPrimary from "./ui/BtnPrimary.vue";
 import LogoGreen from "./ui/LogoGreen.vue";
+
+const isEnrollmentModalOpen = useIsEnrollmentModalOpen();
+
+const openEnrollmentModal = () => {
+  isEnrollmentModalOpen.value = true;
+};
 
 </script>
 

@@ -6,7 +6,7 @@
           Toshkent shahar ftiziatriya va pulmonologiya markazi
         </div>
         <div class="flex gap-5 mt-12">
-          <BtnPrimary>
+          <BtnPrimary @clicked="openEnrollmentModal">
             Qabulga yozilish
           </BtnPrimary>
           <BtnSecondary>
@@ -23,6 +23,12 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+
+const isEnrollmentModalOpen = useIsEnrollmentModalOpen();
+
+const openEnrollmentModal = () => {
+  isEnrollmentModalOpen.value = true;
+};
 
 </script>

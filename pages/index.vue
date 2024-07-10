@@ -19,6 +19,11 @@
     <div id="contact">
       <contact/>
     </div>
+
+<!--    Modals-->
+    <div>
+      <enrollment/>
+    </div>
   </div>
 </template>
 
@@ -28,6 +33,7 @@ import AboutUs from "~/components/main/AboutUs.vue";
 import Doctors from "~/components/main/Doctors.vue";
 import Services from "~/components/main/Services.vue";
 import Contact from "~/components/main/Contact.vue";
+import Enrollment from "~/components/modals/Enrollment.vue";
 
 definePageMeta({
   layout: "main-layout"
