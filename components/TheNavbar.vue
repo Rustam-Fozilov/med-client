@@ -6,10 +6,10 @@
           <logo-green/>
         </div>
         <div class="flex gap-5">
-          <RouterLink to="#about-us" class="hover:opacity-60 duration-300">Biz haqimizda</RouterLink>
-          <RouterLink to="#doctors" class="hover:opacity-60 duration-300">Shifokorlar</RouterLink>
-          <RouterLink to="#services" class="hover:opacity-60 duration-300">Xizmatlar</RouterLink>
-          <RouterLink to="#contact" class="hover:opacity-60 duration-300">Kontakt</RouterLink>
+          <RouterLink to="/#about-us" class="hover:opacity-60 duration-300">Biz haqimizda</RouterLink>
+          <RouterLink to="/doctors" class="hover:opacity-60 duration-300">Shifokorlar</RouterLink>
+          <RouterLink to="/services" class="hover:opacity-60 duration-300">Xizmatlar</RouterLink>
+          <RouterLink to="/#contact" class="hover:opacity-60 duration-300">Kontakt</RouterLink>
         </div>
         <div>
           <btn-primary class="text-sm" @clicked="openEnrollmentModal">

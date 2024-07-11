@@ -9,7 +9,7 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis metus aliquet, suscipit odio id, sodales elit. Sed id est vel dolor pulvinar efficitur. Cras finibus dictum felis, et volutpat purus .
         </div>
       </div>
-      <div class="flex justify-between gap-5 flex-wrap">
+      <div class="flex justify-start gap-5 flex-wrap">
         <div v-for="i in 4" class="w-[490px] flex h-80 bg-white rounded-md">
           <div class="flex w-full justify-between">
             <div class="h-full p-8 w-[40%]">
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div>
-        <BtnSecondary class-name="w-full">
+        <BtnSecondary class-name="w-full" @clicked="gotoDoctors">
           Barcha xodimlar
         </BtnSecondary>
       </div>
@@ -44,5 +44,12 @@
 </template>
 
 <script setup lang="ts">
+import BtnSecondary from "~/components/ui/BtnSecondary.vue";
+
+const router = useRouter();
+
+const gotoDoctors = () => {
+  router.push('/doctors')
+}
 
 </script>

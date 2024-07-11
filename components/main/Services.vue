@@ -13,7 +13,7 @@
         <service-card v-for="i in 5"/>
       </div>
       <div class="mt-7">
-        <BtnSecondary class-name="w-full">
+        <BtnSecondary class-name="w-full" @clicked="gotoServices">
           Barcha xizmatlar
         </BtnSecondary>
       </div>
@@ -23,5 +23,11 @@
 
 <script setup lang="ts">
 import ServiceCard from "~/components/main/cards/ServiceCard.vue";
+
+const router = useRouter();
+
+const gotoServices = () => {
+  router.push('/services')
+}
 
 </script>
