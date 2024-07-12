@@ -7,7 +7,7 @@
       <div class="flex gap-36">
         <div class="font-sf-medium">
           <RouterLink to="#about-us" class="mt-5 block">Biz haqimizda</RouterLink>
-          <RouterLink to="#doctors">Shifokorlar</RouterLink>
+          <RouterLink to="/doctors">Shifokorlar</RouterLink>
         </div>
         <div class="mt-5">
           <div>

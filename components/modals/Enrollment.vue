@@ -8,7 +8,7 @@
             Qabulga yozilish
           </div>
           <div class="w-full h-px bg-black bg-opacity-20"></div>
-          <form class="flex flex-col gap-6 px-10 pb-10 ">
+          <form @submit.prevent="handleSubmitForm" class="flex flex-col gap-6 px-10 pb-10 ">
             <div class="flex flex-col gap-5">
               <div>
                 <input type="text" placeholder="Ism" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
@@ -39,10 +39,18 @@
 
 <script setup lang="ts">
 
+import {useIsConfirmModalOpen} from "~/composables/confirm.composable";
+
 const isEnrollmentModalOpen = useIsEnrollmentModalOpen();
+const isConfirmModalOpen = useIsConfirmModalOpen();
 
 const closeModal = () => {
   isEnrollmentModalOpen.value = false;
+}
+
+const handleSubmitForm = () => {
+  isEnrollmentModalOpen.value = false;
+  isConfirmModalOpen.value = true;
 }
 
 </script>

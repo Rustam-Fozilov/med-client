@@ -10,6 +10,7 @@
 
     <div>
       <enrollment/>
+      <confirm-code/>
     </div>
   </div>
 </template>
@@ -17,6 +18,7 @@
 <script setup lang="ts">
 import TheNavbar from "~/components/TheNavbar.vue";
 import Enrollment from "~/components/modals/Enrollment.vue";
+import ConfirmCode from "~/components/modals/ConfirmCode.vue";
 
 defineProps({
   footerVisible: {
