@@ -1,6 +1,6 @@
 <template>
   <div class="bg-dark-green">
-    <div class="my-container py-12 flex justify-between">
+    <div class="my-container py-12 flex gap-1 justify-between">
       <div class="w-1/2">
         <div class="text-4xl text-white">
           Biz haqimizda

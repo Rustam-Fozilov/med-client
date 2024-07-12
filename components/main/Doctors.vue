@@ -9,8 +9,8 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis metus aliquet, suscipit odio id, sodales elit. Sed id est vel dolor pulvinar efficitur. Cras finibus dictum felis, et volutpat purus .
         </div>
       </div>
-      <div class="flex justify-start gap-5 flex-wrap">
-        <div v-for="i in 4" class="w-[490px] flex h-80 bg-white rounded-md">
+      <div class="flex justify-start gap-5 flex-wrap 2xl:justify-around">
+        <div v-for="i in 4" class="w-[490px] flex h-80 bg-white rounded-md xl:w-[48.5%]">
           <div class="flex w-full justify-between">
             <div class="h-full p-8 w-[40%]">
               <div class="flex flex-col justify-between h-full w-full">

@@ -24,4 +24,10 @@
     width: 1520px;
     margin: 0 auto;
   }
+
+  @media screen and (max-width: 1536px) {
+    .my-container {
+      width: 90%;
+    }
+  }
 }
