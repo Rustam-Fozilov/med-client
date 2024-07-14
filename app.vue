@@ -24,3 +24,11 @@ nuxtApp.hook("page:finish", () => {
   loading.value = false;
 })
 </script>
+
+<style>
+select {
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+</style>

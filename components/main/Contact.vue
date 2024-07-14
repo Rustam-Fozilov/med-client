@@ -48,7 +48,7 @@
         </div>
       </div>
       <div id="map" class="w-1/2 bg-dark-green rounded-md">
-        <div style="position:relative;overflow:hidden;"><a href="https://yandex.uz/maps/org/9154925407/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Ташкентская городская клиническая больница туберкулеза и пульмонологии</a><a href="https://yandex.uz/maps/10335/tashkent/category/specialized_hospital/53437260559/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Специализированная больница в Ташкенте</a><iframe src="https://yandex.uz/map-widget/v1/org/9154925407/?ll=69.232759%2C41.352582&z=16" width="100%" height="450px" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+<!--        <div style="position:relative;overflow:hidden;"><a href="https://yandex.uz/maps/org/9154925407/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Ташкентская городская клиническая больница туберкулеза и пульмонологии</a><a href="https://yandex.uz/maps/10335/tashkent/category/specialized_hospital/53437260559/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Специализированная больница в Ташкенте</a><iframe src="https://yandex.uz/map-widget/v1/org/9154925407/?ll=69.232759%2C41.352582&z=16" width="100%" height="450px" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>-->
       </div>
     </div>
   </div>

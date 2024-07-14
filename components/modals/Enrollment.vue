@@ -11,16 +11,21 @@
           <form @submit.prevent="handleSubmitForm" class="flex flex-col gap-6 px-10 pb-10 ">
             <div class="flex flex-col gap-5">
               <div>
-                <input type="text" placeholder="Ism" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
+                <input type="text" required placeholder="Ism" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
               </div>
               <div>
-                <input type="text" placeholder="Familiya" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
+                <input type="text" required placeholder="Familiya" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
               </div>
               <div>
-                <input type="text" placeholder="Telefon" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
+                <input type="text" required placeholder="Telefon" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
               </div>
               <div>
-                <input type="text" placeholder="Shifokor" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
+                <select class="w-full bg-transparent cursor-pointer rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
+                  <option selected disabled class="opacity-50">Shifokorni tanlang</option>
+                  <option v-for="doctor in allDoctors" :key="doctor.id" :value="doctor.id">
+                    {{ doctor.user.name }}
+                  </option>
+                </select>
               </div>
             </div>
             <div class="text-dark-green leading-none text-rg">
@@ -38,11 +43,28 @@
 </template>
 
 <script setup lang="ts">
-
-import {useIsConfirmModalOpen} from "~/composables/confirm.composable";
+import { useIsConfirmModalOpen } from "~/composables/confirm.composable";
+import { useIsEnrollmentModalOpen } from "~/composables/enrollment.composable";
+import type { DoctorType } from "~/core/types/doctor.type";
+import { onMounted } from "vue";
+import axios from "axios";
 
 const isEnrollmentModalOpen = useIsEnrollmentModalOpen();
 const isConfirmModalOpen = useIsConfirmModalOpen();
+const config = useRuntimeConfig();
+const allDoctors = ref<Array<DoctorType>>([]);
+
+onMounted(async () => {
+  await getAllDoctors();
+});
+
+const getAllDoctors = async () => {
+  await axios
+      .get(config.public.baseApiURL + '/api/doctors')
+      .then((res) => {
+        allDoctors.value = res.data;
+      });
+}
 
 const closeModal = () => {
   isEnrollmentModalOpen.value = false;
