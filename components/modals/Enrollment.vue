@@ -8,24 +8,69 @@
             Qabulga yozilish
           </div>
           <div class="w-full h-px bg-black bg-opacity-20"></div>
-          <form @submit.prevent="handleSubmitForm" class="flex flex-col gap-6 px-10 pb-10 ">
+          <VForm
+              @submit="handleSubmitForm"
+              :validation-schema="sendFormValidation"
+              class="flex flex-col gap-6 px-10 pb-10"
+          >
             <div class="flex flex-col gap-5">
               <div>
-                <input type="text" required placeholder="Ism" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
+                <Field
+                    type="text"
+                    name="f_name"
+                    placeholder="Ism"
+                    autocomplete="off"
+                    class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5"
+                />
+                <ErrorMessage name="f_name" class="text-red-500 text-rg"/>
               </div>
               <div>
-                <input type="text" required placeholder="Familiya" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
+                <Field
+                    name="l_name"
+                    type="text"
+                    placeholder="Familiya"
+                    class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5"
+                />
+                <ErrorMessage name="l_name" class="text-red-500 text-rg"/>
               </div>
               <div>
-                <input type="text" required placeholder="Telefon" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
+                <Field
+                    v-model="phone"
+                    v-maska
+                    data-maska="+998(##)###-##-##"
+                    placeholder="+998(00)000-00-00"
+                    name="phone"
+                    autocomplete="off"
+                    type="phone"
+                    class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5"
+                />
+                <ErrorMessage name="phone" class="text-red-500 text-rg"/>
               </div>
               <div>
-                <select class="w-full bg-transparent cursor-pointer rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
-                  <option selected disabled class="opacity-50">Shifokorni tanlang</option>
+                <Field
+                    as="select"
+                    name="doctor_id"
+                    class="w-full bg-transparent cursor-pointer rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5"
+                >
+                  <option value="" disabled class="opacity-50">Shifokorni tanlang</option>
                   <option v-for="doctor in allDoctors" :key="doctor.id" :value="doctor.id">
                     {{ doctor.user.name }}
                   </option>
-                </select>
+                </Field>
+                <ErrorMessage name="doctor_id" class="text-red-500 text-rg"/>
+              </div>
+              <div>
+                <Field
+                    as="select"
+                    name="time"
+                    class="w-full bg-transparent cursor-pointer rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5"
+                >
+                  <option value="" disabled class="opacity-50">Vaqtni belgilang</option>
+                  <option v-for="doctor in allDoctors" :key="doctor.id" :value="doctor.id">
+                    {{ doctor.user.name }}
+                  </option>
+                </Field>
+                <ErrorMessage name="doctor_id" class="text-red-500 text-rg"/>
               </div>
             </div>
             <div class="text-dark-green leading-none text-rg">
@@ -34,7 +79,7 @@
             <btn-primary class-name="w-full">
               Qabulga yozilish
             </btn-primary>
-          </form>
+          </VForm>
         </div>
       </div>
     </div>
@@ -48,14 +93,26 @@ import { useIsEnrollmentModalOpen } from "~/composables/enrollment.composable";
 import type { DoctorType } from "~/core/types/doctor.type";
 import { onMounted } from "vue";
 import axios from "axios";
+import { ErrorMessage, Field, Form as VForm } from "vee-validate";
+import * as Yup from "yup";
+import { vMaska } from "maska/vue";
 
 const isEnrollmentModalOpen = useIsEnrollmentModalOpen();
 const isConfirmModalOpen = useIsConfirmModalOpen();
 const config = useRuntimeConfig();
 const allDoctors = ref<Array<DoctorType>>([]);
+const phone = ref("");
 
 onMounted(async () => {
   await getAllDoctors();
+});
+
+const sendFormValidation = Yup.object().shape({
+  f_name: Yup.string().required("Ismingizni kiriting"),
+  l_name: Yup.string().required("Familiyangizni kiriting"),
+  phone: Yup.string().min(17, "To'g'ri telefon raqam kiriting").required("Telefon raqam kiritilishi shart"),
+  doctor_id: Yup.string().required("Shifokorni tanlang"),
+  time: Yup.string().required("Vaqtni belgilang"),
 });
 
 const getAllDoctors = async () => {
@@ -64,16 +121,20 @@ const getAllDoctors = async () => {
       .then((res) => {
         allDoctors.value = res.data;
       });
-}
+};
+
+const handleSubmitForm = (values: any) => {
+  isEnrollmentModalOpen.value = false;
+  isConfirmModalOpen.value = true;
+
+  values.phone = values.phone.replace(/[^\d+]/g, '');
+  values.time = "21:30";
+  sessionStorage.setItem("application_data", JSON.stringify(values));
+};
 
 const closeModal = () => {
   isEnrollmentModalOpen.value = false;
-}
-
-const handleSubmitForm = () => {
-  isEnrollmentModalOpen.value = false;
-  isConfirmModalOpen.value = true;
-}
+};
 
 </script>
 

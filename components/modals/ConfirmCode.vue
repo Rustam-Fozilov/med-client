@@ -11,23 +11,21 @@
               </svg>
             </div>
             <div>
-              Kodni kiriting
+              Tasdiqlash
             </div>
             <!-- FOR ALIGNMENT -->
             <div></div>
           </div>
           <div class="w-full h-px bg-black bg-opacity-20"></div>
-          <form class="flex flex-col gap-6 px-10 pb-10 ">
-            <div>
-              <input type="text" placeholder="Kodni kiriting" class="outline-none w-full rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5">
+          <div class="flex flex-col gap-6 px-10 pb-10 ">
+            <div class="text-center text-md text-dark-green">
+              <span><a href="https://t.me/tshfpmbot" class="underline underline-offset-4">@tshfpmbot</a></span>
+              botiga kiring va murojaatingiz tasdiqlanganligi haqida xabarnomani kuting
             </div>
-            <div class="text-dark-green leading-none text-rg">
-              Qabulga yozilish tasdiqlangandan so’ng telegram bot orqali xabarnomani olasiz
-            </div>
-            <btn-primary class-name="w-full">
+            <btn-primary class-name="w-full" @clicked="confirmApplication">
               Tasdiqlash
             </btn-primary>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -36,10 +34,11 @@
 </template>
 
 <script setup lang="ts">
+import axios from "axios";
 
 const isConfirmModalOpen = useIsConfirmModalOpen();
 const isEnrollmentModalOpen = useIsEnrollmentModalOpen();
-
+const config = useRuntimeConfig();
 
 const closeModal = () => {
   isConfirmModalOpen.value = false;
@@ -48,6 +47,18 @@ const closeModal = () => {
 const handleBack = () => {
   isConfirmModalOpen.value = false;
   isEnrollmentModalOpen.value = true;
+}
+
+const confirmApplication = async () => {
+  const data = sessionStorage.getItem('application_data');
+
+  if (data) {
+    await axios
+        .post(config.public.baseApiURL + '/api/applications', JSON.parse(data))
+        .then((res) => {
+          isConfirmModalOpen.value = false;
+        });
+  }
 }
 
 </script>
