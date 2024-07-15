@@ -60,6 +60,21 @@
                 <ErrorMessage name="doctor_id" class="text-red-500 text-rg"/>
               </div>
               <div>
+                <div class="text-rg opacity-50">Sanani belgilang</div>
+                <Field
+                    @change="handleDateSelected"
+                    v-model="date"
+                    min="2024-07-15"
+                    max="2024-07-20"
+                    type="date"
+                    name="date"
+                    placeholder="fdsa"
+                    class="w-full bg-transparent cursor-pointer rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5"
+                />
+                <ErrorMessage name="date" class="text-red-500 text-rg"/>
+              </div>
+              <div>
+                <div class="text-rg opacity-50">Vaqtni belgilang</div>
                 <Field
                     as="select"
                     name="time"
@@ -70,7 +85,7 @@
                     {{ doctor.user.name }}
                   </option>
                 </Field>
-                <ErrorMessage name="doctor_id" class="text-red-500 text-rg"/>
+                <ErrorMessage name="time" class="text-red-500 text-rg"/>
               </div>
             </div>
             <div class="text-dark-green leading-none text-rg">
@@ -96,12 +111,16 @@ import axios from "axios";
 import { ErrorMessage, Field, Form as VForm } from "vee-validate";
 import * as Yup from "yup";
 import { vMaska } from "maska/vue";
+import { getCurrentDate } from "~/core/helpers/date.helper";
 
 const isEnrollmentModalOpen = useIsEnrollmentModalOpen();
 const isConfirmModalOpen = useIsConfirmModalOpen();
 const config = useRuntimeConfig();
 const allDoctors = ref<Array<DoctorType>>([]);
-const phone = ref("");
+const phone = ref<string>("");
+const date = ref(getCurrentDate());
+const minDate = ref<string>("");
+const maxDate = ref<string>("");
 
 onMounted(async () => {
   await getAllDoctors();
@@ -112,6 +131,7 @@ const sendFormValidation = Yup.object().shape({
   l_name: Yup.string().required("Familiyangizni kiriting"),
   phone: Yup.string().min(17, "To'g'ri telefon raqam kiriting").required("Telefon raqam kiritilishi shart"),
   doctor_id: Yup.string().required("Shifokorni tanlang"),
+  date: Yup.string().required("Sanani belgilang"),
   time: Yup.string().required("Vaqtni belgilang"),
 });
 
@@ -123,13 +143,19 @@ const getAllDoctors = async () => {
       });
 };
 
+const handleDateSelected = () => {
+  // TODO change time depending on time
+  // console.log(date.value)
+}
+
 const handleSubmitForm = (values: any) => {
-  isEnrollmentModalOpen.value = false;
-  isConfirmModalOpen.value = true;
+  // isEnrollmentModalOpen.value = false;
+  // isConfirmModalOpen.value = true;
 
   values.phone = values.phone.replace(/[^\d+]/g, '');
   values.time = "21:30";
-  sessionStorage.setItem("application_data", JSON.stringify(values));
+  console.log(values);
+  // sessionStorage.setItem("application_data", JSON.stringify(values));
 };
 
 const closeModal = () => {
