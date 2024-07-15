@@ -144,18 +144,18 @@ const getAllDoctors = async () => {
 };
 
 const handleDateSelected = () => {
-  // TODO change time depending on time
+  // TODO change time depending on day
   // console.log(date.value)
 }
 
 const handleSubmitForm = (values: any) => {
-  // isEnrollmentModalOpen.value = false;
-  // isConfirmModalOpen.value = true;
+  isEnrollmentModalOpen.value = false;
+  isConfirmModalOpen.value = true;
 
   values.phone = values.phone.replace(/[^\d+]/g, '');
   values.time = "21:30";
   console.log(values);
-  // sessionStorage.setItem("application_data", JSON.stringify(values));
+  sessionStorage.setItem("application_data", JSON.stringify(values));
 };
 
 const closeModal = () => {
