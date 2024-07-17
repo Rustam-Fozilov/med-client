@@ -5,16 +5,19 @@
         <div>
           <logo-green/>
         </div>
-        <div class="flex gap-5">
-          <RouterLink to="/#about-us" class="hover:opacity-60 duration-300">Biz haqimizda</RouterLink>
+        <div class="flex gap-5 md:hidden">
+          <RouterLink to="/#about-us-test" class="hover:opacity-60 duration-300">Biz haqimizda</RouterLink>
           <RouterLink to="/doctors" class="hover:opacity-60 duration-300">Shifokorlar</RouterLink>
           <RouterLink to="/services" class="hover:opacity-60 duration-300">Xizmatlar</RouterLink>
-          <RouterLink to="/#contact" class="hover:opacity-60 duration-300">Kontakt</RouterLink>
+          <RouterLink to="/#contact-test" class="hover:opacity-60 duration-300">Kontakt</RouterLink>
         </div>
-        <div>
+        <div class="md:hidden">
           <btn-primary class="text-sm" @clicked="openEnrollmentModal">
             Qabulga yozilish
           </btn-primary>
+        </div>
+        <div class="cursor-pointer hidden md:inline-block">
+          <img src="/assets/images/svg/menu-button.svg" alt="Menu button">
         </div>
       </div>
     </div>

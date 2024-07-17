@@ -1,39 +1,17 @@
 <template>
   <div>
     <div class="my-container">
-      <div class="my-12">
-        <div class="flex justify-between items-center leading-normal w-full">
-          <div class="text-4xl">
+      <div class="my-12 xl:my-7">
+        <div class="flex justify-between items-center leading-normal w-full lg:flex-col lg:items-start">
+          <div class="text-4xl sm:text-2xl">
             Shifokorlar
           </div>
-          <div class="w-1/2">
+          <div class="w-1/2 lg:w-full">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis metus aliquet, suscipit odio id, sodales elit. Sed id est vel dolor pulvinar efficitur. Cras finibus dictum felis, et volutpat purus .
           </div>
         </div>
         <div class="flex justify-start gap-5 flex-wrap mt-5">
-          <div v-for="i in 8" class="w-[490px] flex h-80 bg-white rounded-md">
-            <div class="flex w-full justify-between">
-              <div class="h-full p-8 w-[40%]">
-                <div class="flex flex-col justify-between h-full w-full">
-                  <div>
-                    <div class="text-[20px] leading-none">
-                      Akkiev Muhiddin Isomiddinovich
-                    </div>
-                    <div class="opacity-50 leading-none text-rg mt-3">
-                      Заведующий отделением лучевой диагностики
-                    </div>
-                  </div>
-                  <div class="opacity-50 text-rg">
-                    <div>+998 (99) 999-99-99</div>
-                    <div>Год рождение: 1985 г</div>
-                  </div>
-                </div>
-              </div>
-              <div class="w-[60%] flex h-full items-end justify-end">
-                <img src="/assets/images/main/card-bg.png" alt="" class="w-full h-auto">
-              </div>
-            </div>
-          </div>
+          <doctor-card v-for="i in 5"/>
         </div>
       </div>
     </div>
@@ -41,6 +19,8 @@
 </template>
 
 <script setup lang="ts">
+import DoctorCard from "~/components/main/cards/DoctorCard.vue";
+
 definePageMeta({
   layout: "main-layout",
 });
@@ -54,3 +34,26 @@ onBeforeMount(() => {
 })
 
 </script>
+
+
+<style scoped>
+
+@media screen and (max-width: 1536px){
+  .doctor_card {
+    width: 32%;
+  }
+}
+
+@media screen and (max-width: 1280px){
+  .doctor_card {
+    width: 48.5%;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .doctor_card {
+    width: 100%;
+  }
+}
+
+</style>

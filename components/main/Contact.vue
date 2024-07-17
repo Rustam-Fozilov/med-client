@@ -1,14 +1,15 @@
 <template>
-  <div class="bg-soft-tiffany py-16 text-dark-green">
-    <div class="my-container flex justify-between gap-5 h-full">
-      <div class="flex flex-col gap-10 w-1/2">
-        <div class="text-4xl">
+  <div class="bg-soft-tiffany py-16 text-dark-green lg:py-5">
+    <div id="contact-test" class="relative -top-24">.</div>
+    <div class="my-container flex justify-between gap-5 h-full xl:flex-col">
+      <div class="flex flex-col gap-10 w-1/2 lg:w-full lg:gap-5">
+        <div class="text-4xl sm:text-2xl">
           Kontakt
         </div>
-        <div class="text-lg leading-none">
+        <div class="text-lg leading-none sm:text-md">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.In quis metus aliquet, suscipit odio id, sodales elit. Sed id est vel dolor pulvinar efficitur. Cras finibus dictum felis.
         </div>
-        <div class="flex gap-12">
+        <div class="flex gap-12 sm:flex-col sm:gap-5">
           <div class="flex flex-col gap-2">
             <div class="flex gap-1 items-center">
               <div>
@@ -38,17 +39,17 @@
             </div>
           </div>
         </div>
-        <div class="flex gap-5">
-          <BtnPrimary @clicked="openEnrollmentModal">
+        <div class="flex xsm:flex-col gap-5 xsm:gap-3">
+          <BtnPrimary class-name="xsm:w-full" @clicked="openEnrollmentModal">
             Qabulga yozilish
           </BtnPrimary>
-          <BtnSecondary>
+          <BtnSecondary class-name="xsm:w-full">
             Qo'ng'iroq qilish
           </BtnSecondary>
         </div>
       </div>
-      <div id="map" class="w-1/2 bg-dark-green rounded-md">
-<!--        <div style="position:relative;overflow:hidden;"><a href="https://yandex.uz/maps/org/9154925407/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Ташкентская городская клиническая больница туберкулеза и пульмонологии</a><a href="https://yandex.uz/maps/10335/tashkent/category/specialized_hospital/53437260559/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Специализированная больница в Ташкенте</a><iframe src="https://yandex.uz/map-widget/v1/org/9154925407/?ll=69.232759%2C41.352582&z=16" width="100%" height="450px" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>-->
+      <div id="map" class="w-1/2 bg-dark-green rounded-md xl:w-full">
+        <div style="position:relative;overflow:hidden;"><a href="https://yandex.uz/maps/org/9154925407/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Ташкентская городская клиническая больница туберкулеза и пульмонологии</a><a href="https://yandex.uz/maps/10335/tashkent/category/specialized_hospital/53437260559/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Специализированная больница в Ташкенте</a><iframe src="https://yandex.uz/map-widget/v1/org/9154925407/?ll=69.232759%2C41.352582&z=16" width="100%" height="450px" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
       </div>
     </div>
   </div>

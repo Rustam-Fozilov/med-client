@@ -40,8 +40,10 @@ export default {
       '2xls': {'max': '1326px'},
       'xl': {'max': '1280px'},
       'lg': {'max': '1024px'},
-      'md': {'max': '768px'},
+      'md': {'max': '856px'},
       'sm': {'max': '640px'},
+      'xsm': {'max': '457px'},
+      'xs': {'max': '398px'},
     },
   },
   plugins: [
