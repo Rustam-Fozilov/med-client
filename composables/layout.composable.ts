@@ -5,3 +5,7 @@ export const useIsNavbarFloat = () => {
 export const useBgColor = () => {
   return useState('bgColor', () => 'white')
 }
+
+export const useIsMobileNavOpen = () => {
+  return useState('isMobileNavOpen', () => false)
+}

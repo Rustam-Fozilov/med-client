@@ -1,6 +1,6 @@
 <template>
   <div class="bg-dark-green">
-    <div id="about-us-test" class="relative -top-24">.</div>
+    <div id="about-us" class="relative -top-24">.</div>
     <div class="my-container py-12 flex gap-1 justify-between lg:flex-col lg:gap-8 lg:py-8">
       <div class="w-1/2 lg:w-full">
         <div class="text-4xl text-white sm:text-2xl">

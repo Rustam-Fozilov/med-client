@@ -1,6 +1,7 @@
 <template>
   <div :style="'background-color: ' + bgColor">
     <the-navbar/>
+    <nav-mobile/>
 
     <div :style="navbarFloat ? 'padding-top: 6rem;' : ''">
       <slot/>
@@ -17,6 +18,7 @@
 
 <script setup lang="ts">
 import TheNavbar from "~/components/TheNavbar.vue";
+import NavMobile from "~/components/main/NavMobile.vue";
 import Enrollment from "~/components/modals/Enrollment.vue";
 import ConfirmCode from "~/components/modals/ConfirmCode.vue";
 

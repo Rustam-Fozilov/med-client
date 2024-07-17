@@ -4,19 +4,19 @@
       <hero-section/>
     </div>
 
-    <div id="about-us">
+    <div>
       <about-us/>
     </div>
 
-    <div id="doctors" class="bg-soft-white">
+    <div class="bg-soft-white">
       <doctors/>
     </div>
 
-    <div id="services" class="bg-soft-white">
+    <div class="bg-soft-white">
       <services/>
     </div>
 
-    <div id="contact">
+    <div>
       <contact/>
     </div>
   </div>
