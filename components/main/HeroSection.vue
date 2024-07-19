@@ -9,9 +9,9 @@
           <BtnPrimary class-name="xs:w-full" @clicked="openEnrollmentModal">
             Qabulga yozilish
           </BtnPrimary>
-          <BtnSecondary class-name="xs:w-full">
+          <a href="tel:+998712882317" class="px-4 bg-transparent font-sf-regular border-dark-green border-[1px] flex items-center justify-center py-[10px] text-dark-green rounded-lg hover:bg-dark-green hover:text-white transition duration-300">
             Qo'ng'iroq qilish
-          </BtnSecondary>
+          </a>
         </div>
       </div>
       <div id="hero-image_container" class="animate-in slide-in-from-bottom fade-in-0 duration-1000 h-auto lg:order-1 lg:w-auto lg:h-[55%]">

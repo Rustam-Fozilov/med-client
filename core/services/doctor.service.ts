@@ -32,4 +32,34 @@ const getDoctorsAvailableTimes = (workHours: workHoursType) => {
   return times;
 }
 
-export default getDoctorsAvailableTimes;
+const splitWorkHours = (workHours: workHoursType) => {
+  // Parse the begin and end times
+  let [beginHour, beginMinute] = workHours.begin.split(':').map(Number);
+  let [endHour, endMinute] = workHours.end.split(':').map(Number);
+
+  // Initialize the times array and the current time
+  let times = [];
+  let currentHour = beginHour;
+  let currentMinute = beginMinute;
+
+  // Loop until the current time is equal to or greater than the end time
+  while (currentHour < endHour || (currentHour === endHour && currentMinute < endMinute)) {
+    // Format the current time and add it to the times array
+    let formattedTime = `${String(currentHour).padStart(2, '0')}:${String(currentMinute).padStart(2, '0')}`;
+    times.push(formattedTime);
+
+    // Increment the current time by the interval
+    currentMinute += 30;
+    if (currentMinute >= 60) {
+      currentMinute -= 60;
+      currentHour += 1;
+    }
+  }
+
+  return times;
+}
+
+export {
+  getDoctorsAvailableTimes,
+  splitWorkHours,
+};

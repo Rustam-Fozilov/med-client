@@ -19,8 +19,8 @@
           <div class="w-full h-px bg-black bg-opacity-20"></div>
           <div class="flex flex-col gap-6 px-10 pb-10 xsm:px-5 xsm:pb-5 xsm:gap-3">
             <div class="text-center text-md text-dark-green">
-              <span><a href="https://t.me/tshfpmbot" class="underline underline-offset-4">@tshfpmbot</a></span>
-              botiga kiring va murojaatingiz tasdiqlanganligi haqida xabarnomani kuting
+              Tasdiqlash tugmasini bosgandan so'ng <span><a target="_blank" href="https://t.me/tshfpmbot" class="underline underline-offset-4">@tshfpmbot</a></span>
+              botiga o'tib, start tugmasini bosing va xabarnomani kuting
             </div>
             <btn-primary class-name="w-full" @clicked="confirmApplication">
               Tasdiqlash

@@ -6,16 +6,13 @@
         <div class="text-4xl text-white sm:text-2xl">
           Biz haqimizda
         </div>
-        <div class="text-lg leading-none text-white mt-10 lg:mt-3 sm:text-md">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis metus aliquet, suscipit odio id, sodales elit. Sed id est vel dolor pulvinar efficitur. Cras finibus dictum felis.
-        </div>
+        <div class="text-lg leading-none text-white mt-7 lg:mt-3 sm:text-md">
+          O‘z ixtisosligi bo‘yicha kasalliklarga tashxis qo‘yish, ularni davolash va kasalliklarni oldini olishda axolining yuqori malakali ixtisoslashtirilgan tibbiy yordamga bo‘lgan talabini qondiriladi.        </div>
       </div>
       <div class="w-1/2 lg:w-full">
         <div class="text-white text-rg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis metus aliquet, suscipit odio id, sodales elit. Sed id est vel dolor pulvinar efficitur. Cras finibus dictum felis, et volutpat purus dignissim in. Maecenas consequat turpis magna, in aliquet odio posuere vitae. Ut egestas vel arcu in semper. Aenean ullamcorper ex lectus, quis mollis mi hendrerit vel. Cras sed cursus nisl.
-          <br><br>
-          Vivamus pellentesque purus non nibh convallis pretium. Phasellus lectus felis, pellentesque laoreet tortor vel, scelerisque malesuada augue. Curabitur vel diam venenatis, posuere nisl nec, egestas lorem. Maecenas vitae aliquet nisi, vel pharetra leo. Integer porta, eros eu iaculis venenatis, mi mauris semper ligula, non blandit enim lacus sit amet mauris. Nam eget tempor lorem, eget sodales dolor. Praesent ultricies enim blandit, varius massa sed, tincidunt ante. Morbi sit amet eleifend elit. Suspendisse sed tristique sapien. Pellentesque orci leo, efficitur a mattis sed, sollicitudin in ex.
-        </div>
+          Xozirgi kundagi Toshkent shahar ftiziatriya va pulmonologiya markazi 1926-yilda 2-sonli dispanser shaklida tashkil qilingan. 1994-yilda Shahar silga qarshi dispanseri maqomi berilgan. 2008-yilda yangi binoga ko‘chib, O‘zbekiston Respublikasi Prezidentining 2019-yil 13-fevraldagi “Ixtisoslashtirilgan ftiziatriya va pulmonologiya yordami ko‘rsatish tizimini takomillashtirish chora-tadbirlari to‘g‘risida”gi PQ-4191-sonli qarori, O‘zbekiston Respublikasi Sog‘liqni saqlash vazirligining 2019-yil 1-iyuldagi 173-sonli hamda Shahar sog‘liqni saqlash bosh boshqarmasining 2019-yil 3-iyuldagi “Sil bilan kasallangan bemorlarga tibbiy yordam ko‘rsatish tartibi to‘g‘risida”gi 154-sonli buyruqlari asosida ishlab chiqilgan.          <br><br>
+          Yuqori malakali va yuqori sifatli xamda xozirgi zamon xalkaro talablarga mos keladigan ixtisoslashtirilgan tibbiy yordam ko‘rsatishga mo‘ljallangan yuqori texnologik moddiy va ilmiy bazani shakllantirilgan; O‘z ixtisosligi bo‘yicha kasalliklarga tashxis qo‘yish, ularni davolash va kasalliklarni oldini olishda axolining yuqori malakali ixtisoslashtirilgan tibbiy yordamga bo‘lgan talabini qondiriladi.        </div>
         <div class="mt-10 w-full xsm:mt-5">
           <img class="w-full h-full object-cover" src="/assets/images/main/about-us.png" alt="About us">
         </div>

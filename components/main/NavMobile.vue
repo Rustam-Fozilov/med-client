@@ -10,9 +10,12 @@
             <RouterLink @click="isMobileNavOpen = false" to="/#contact" class="hover:opacity-60 duration-300">Kontakt</RouterLink>
           </div>
           <div class="flex w-full gap-3 mt-12 xs:flex-col xs:w-full">
-            <BtnPrimary class-name="xs:w-full bg-white text-gray-900" @clicked="openEnrollmentModal">
+            <button
+                class="px-4 font-sf-regular border-dark-green border-[1px] flex items-center justify-center py-[10px] rounded-lg hover:text-white hover:bg-transparent hover:border-white transition duration-300 xs:w-full bg-white text-gray-900"
+                @click="openEnrollmentModal"
+            >
               Qabulga yozilish
-            </BtnPrimary>
+            </button>
             <BtnSecondary class-name="xs:w-full border-white text-white">
               Qo'ng'iroq qilish
             </BtnSecondary>

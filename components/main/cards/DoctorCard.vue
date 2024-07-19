@@ -1,30 +1,38 @@
 <template>
-  <div class="w-[490px] flex bg-white rounded-md xl:w-[48.5%] doctor_card">
+  <div class="w-[490px] flex bg-white rounded-md xl:w-[48.5%] doctor_card overflow-hidden">
     <div class="flex w-full justify-between">
-      <div class="h-full p-8 w-[40%]">
+      <div class="h-full p-8 w-[40%] xsm:p-4">
         <div class="flex flex-col justify-between h-full w-full">
           <div>
-            <div class="text-[20px] leading-none">
-              Akkiev Muhiddin Isomiddinovich
+            <div class="text-[20px] leading-none xsm:text-rg">
+              {{ doctor?.user.name }}
             </div>
-            <div class="opacity-50 leading-none text-rg mt-3">
-              Заведующий отделением лучевой диагностики
+            <div class="opacity-50 leading-none text-rg mt-3 xsm:mt-1">
+              {{ doctor.specialization }}
             </div>
           </div>
           <div class="opacity-50 text-rg">
-            <div>+998 (99) 999-99-99</div>
-            <div>Год рождение: 1985 г</div>
+            <div>
+              {{ doctor?.user.phone }}
+            </div>
+            <div class="">Tug'ilgan yili: {{ doctor?.birth_year }}</div>
           </div>
         </div>
       </div>
-      <div class="w-[60%] flex h-full items-end justify-end pt-12">
-        <img src="/assets/images/main/card-bg.png" alt="" class="w-full h-auto md:h-full md:object-cover">
+      <div class="w-[60%] flex h-full items-end justify-end pt-7">
+        <img :src="doctor?.image" alt="" class="w-full h-auto object-contain md:h-full md:object-cover">
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { DoctorType } from "~/core/types/doctor.type";
+import type { PropType } from "vue";
+
+defineProps({
+  doctor: Object as PropType<DoctorType>,
+});
 
 </script>
 

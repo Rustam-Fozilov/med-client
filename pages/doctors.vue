@@ -6,12 +6,12 @@
           <div class="text-4xl sm:text-2xl">
             Shifokorlar
           </div>
-          <div class="w-1/2 lg:w-full">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis metus aliquet, suscipit odio id, sodales elit. Sed id est vel dolor pulvinar efficitur. Cras finibus dictum felis, et volutpat purus .
+          <div class="w-1/3 lg:w-full text-end">
+            Ixtisoslashtirilgan tibbiy xizmatga muxtoj ftiziatrik va pulmonologik kasalliklari bilan ogrigan bemorlarni aniqlash
           </div>
         </div>
         <div class="flex justify-start gap-5 flex-wrap mt-5">
-          <doctor-card v-for="i in 5"/>
+          <doctor-card v-for="doctor in allDoctors" :key="doctor.id" :doctor="doctor"/>
         </div>
       </div>
     </div>
@@ -19,7 +19,11 @@
 </template>
 
 <script setup lang="ts">
+// @ts-ignore
 import DoctorCard from "~/components/main/cards/DoctorCard.vue";
+import type {DoctorType} from "~/core/types/doctor.type";
+import { onMounted } from "vue";
+import axios from "axios";
 
 definePageMeta({
   layout: "main-layout",
@@ -27,6 +31,20 @@ definePageMeta({
 
 const isNavbarFloat = useIsNavbarFloat();
 const bgColor = useBgColor();
+const config = useRuntimeConfig();
+const allDoctors = ref<Array<DoctorType>>([]);
+
+onMounted(async () => {
+  await getAllDoctors();
+});
+
+const getAllDoctors = async () => {
+  await axios
+      .get(config.public.baseApiURL + '/api/doctors')
+      .then((res) => {
+        allDoctors.value = res.data;
+      });
+};
 
 onBeforeMount(() => {
   isNavbarFloat.value = true;

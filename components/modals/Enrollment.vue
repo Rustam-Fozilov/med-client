@@ -47,7 +47,23 @@
                 <ErrorMessage name="phone" class="text-red-500 text-rg"/>
               </div>
               <div>
+                <div class="text-rg opacity-50">Sanani belgilang</div>
                 <Field
+                    @change="calculateAvailableTimes"
+                    v-model="selectedDate"
+                    :min="minDate"
+                    :max="maxDate"
+                    type="date"
+                    name="date"
+                    placeholder="fdsa"
+                    class="w-full bg-transparent cursor-pointer rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5"
+                />
+                <ErrorMessage name="date" class="text-red-500 text-rg"/>
+              </div>
+              <div>
+                <Field
+                    v-model="selectedDoctor"
+                    @change="calculateAvailableTimes"
                     as="select"
                     name="doctor_id"
                     class="w-full bg-transparent cursor-pointer rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5"
@@ -60,20 +76,6 @@
                 <ErrorMessage name="doctor_id" class="text-red-500 text-rg"/>
               </div>
               <div>
-                <div class="text-rg opacity-50">Sanani belgilang</div>
-                <Field
-                    @change="handleDateSelected"
-                    v-model="date"
-                    min="2024-07-15"
-                    max="2024-07-20"
-                    type="date"
-                    name="date"
-                    placeholder="fdsa"
-                    class="w-full bg-transparent cursor-pointer rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5"
-                />
-                <ErrorMessage name="date" class="text-red-500 text-rg"/>
-              </div>
-              <div>
                 <div class="text-rg opacity-50">Vaqtni belgilang</div>
                 <Field
                     as="select"
@@ -81,10 +83,11 @@
                     class="w-full bg-transparent cursor-pointer rounded-md border border-black border-opacity-20 focus:border-dark-green py-2 px-5"
                 >
                   <option value="" disabled class="opacity-50">Vaqtni belgilang</option>
-                  <option v-for="doctor in allDoctors" :key="doctor.id" :value="doctor.id">
-                    {{ doctor.user.name }}
+                  <option v-for="time in availableTimes" :value="time">
+                    {{ time }}
                   </option>
                 </Field>
+                <div v-if="!haveAvailableTimes" class="text-red-500 text-rg">Bo'sh vaqt mavjud emas</div>
                 <ErrorMessage name="time" class="text-red-500 text-rg"/>
               </div>
             </div>
@@ -112,27 +115,36 @@ import { ErrorMessage, Field, Form as VForm } from "vee-validate";
 import * as Yup from "yup";
 import { vMaska } from "maska/vue";
 import { getCurrentDate } from "~/core/helpers/date.helper";
+import { getDoctorsAvailableTimes, splitWorkHours } from "~/core/services/doctor.service";
 
 const isEnrollmentModalOpen = useIsEnrollmentModalOpen();
 const isConfirmModalOpen = useIsConfirmModalOpen();
 const config = useRuntimeConfig();
 const allDoctors = ref<Array<DoctorType>>([]);
 const phone = ref<string>("");
-const date = ref(getCurrentDate());
-const minDate = ref<string>("");
+const selectedDate = ref(getCurrentDate());
+const minDate = ref<string>(getCurrentDate());
 const maxDate = ref<string>("");
+const selectedDoctor = ref(null);
+const haveAvailableTimes = ref(true);
+const availableTimes = ref<Array<any>>([]);
 
 onMounted(async () => {
   await getAllDoctors();
+
+  const currentDate = new Date().getDate();
+  const max = getCurrentDate().split("-");
+  max[2] = (currentDate + 5).toString();
+  maxDate.value = max.join('-')
 });
 
 const sendFormValidation = Yup.object().shape({
   f_name: Yup.string().required("Ismingizni kiriting"),
   l_name: Yup.string().required("Familiyangizni kiriting"),
   phone: Yup.string().min(17, "To'g'ri telefon raqam kiriting").required("Telefon raqam kiritilishi shart"),
-  // doctor_id: Yup.string().required("Shifokorni tanlang"),
+  doctor_id: Yup.string().required("Shifokorni tanlang"),
   date: Yup.string().required("Sanani belgilang"),
-  // time: Yup.string().required("Vaqtni belgilang"),
+  time: Yup.string().required("Vaqtni belgilang"),
 });
 
 const getAllDoctors = async () => {
@@ -143,9 +155,25 @@ const getAllDoctors = async () => {
       });
 };
 
-const handleDateSelected = () => {
-  // TODO change time depending on day
-  // console.log(date.value)
+const calculateAvailableTimes = () => {
+  if (!selectedDate.value || !selectedDoctor.value) return;
+
+  const doctor = allDoctors.value.find(item => item.id == selectedDoctor.value);
+  if (!doctor) return;
+
+  const workHours = {
+    begin: doctor.work_start_time,
+    end: doctor.work_end_time
+  };
+
+  const times = ref(
+      selectedDate.value === getCurrentDate()
+          ? getDoctorsAvailableTimes(workHours)
+          : splitWorkHours(workHours)
+  );
+
+  availableTimes.value = times.value;
+  haveAvailableTimes.value = availableTimes.value.length > 0;
 }
 
 const handleSubmitForm = (values: any) => {
@@ -153,8 +181,6 @@ const handleSubmitForm = (values: any) => {
   isConfirmModalOpen.value = true;
 
   values.phone = values.phone.replace(/[^\d+]/g, '');
-  values.time = "21:30";
-  console.log(values);
   sessionStorage.setItem("application_data", JSON.stringify(values));
 };
 

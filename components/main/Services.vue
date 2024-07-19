@@ -6,11 +6,11 @@
           Xizmatlar
         </div>
         <div class="w-1/2 text-lg leading-none lg:w-full md:text-md">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis metus aliquet, suscipit odio id, sodales elit. Sed id est vel dolor pulvinar efficitur. Cras finibus dictum felis, et volutpat purus .
+          Ko‘krak qafasi va ko‘ks a’zolari kasalliklari bilan kasallangan bemorlarda klinik tashxisni belgilash maqsadida tashxislash va differensial tashxislash, davolash tadbirlari majmuasini o‘tkazadi
         </div>
       </div>
       <div class="flex flex-wrap gap-5 justify-start mt-12 md:mt-7">
-        <service-card v-for="i in 5"/>
+        <service-card v-for="service in allServices" :key="service?.id" :service="service"/>
       </div>
       <div class="mt-7">
         <BtnSecondary class-name="w-full" @clicked="gotoServices">
@@ -23,8 +23,25 @@
 
 <script setup lang="ts">
 import ServiceCard from "~/components/main/cards/ServiceCard.vue";
+import type {ServiceType} from "~/core/types/service.type";
+import { onMounted } from "vue";
+import axios from "axios";
 
 const router = useRouter();
+const config = useRuntimeConfig();
+const allServices = ref<Array<ServiceType>>([]);
+
+onMounted(async () => {
+  await getAllServices();
+});
+
+const getAllServices = async () => {
+  await axios
+      .get(config.public.baseApiURL + '/api/services?limit=12')
+      .then((res) => {
+        allServices.value = res.data;
+      });
+};
 
 const gotoServices = () => {
   router.push('/services')
