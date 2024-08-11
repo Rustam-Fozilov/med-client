@@ -42,7 +42,11 @@ const getAllDoctors = async () => {
       .get(config.public.baseApiURL + '/api/doctors?limit=9')
       .then((res) => {
         allDoctors.value = res.data;
-      });
+      })
+      .catch(e => {
+        console.error(e.message);
+        console.error(config.public);
+      })
 };
 
 const gotoDoctors = () => {
