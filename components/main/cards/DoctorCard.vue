@@ -8,7 +8,7 @@
               {{ doctor?.user.name }}
             </div>
             <div class="opacity-50 leading-none text-rg mt-3 xsm:mt-1">
-              {{ doctor.specialization }}
+              {{ doctor?.specialization }}
             </div>
           </div>
           <div class="opacity-50 text-rg">
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="w-[60%] flex h-full items-end justify-end pt-7">
-        <img :src="doctor?.image" alt="" class="w-full h-auto object-contain md:h-full md:object-cover">
+        <img :src="config.public?.baseApiURL + doctor?.image" alt="" class="w-full h-auto object-contain md:h-full md:object-cover">
       </div>
     </div>
   </div>
@@ -33,6 +33,8 @@ import type { PropType } from "vue";
 defineProps({
   doctor: Object as PropType<DoctorType>,
 });
+
+const config = useRuntimeConfig();
 
 </script>
 

@@ -45,7 +45,6 @@ const getAllDoctors = async () => {
       })
       .catch(e => {
         console.error(e.message);
-        console.error(config.public);
       })
 };
 

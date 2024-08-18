@@ -2,7 +2,7 @@
   <div class="w-80 2xl:w-[32%] custom-card-shadow duration-300 service_card">
     <div class="bg-white rounded-lg">
       <div class="h-36">
-        <img class="w-full h-full object-cover rounded-t-md" :src="service?.image" alt="Service image">
+        <img class="w-full h-full object-cover rounded-t-md" :src="config.public?.baseApiURL + service?.image" alt="Service image">
       </div>
       <div class="p-5">
         <div class="text-ellipsis overflow-hidden whitespace-nowrap">
@@ -23,6 +23,8 @@ import type { PropType } from "vue";
 defineProps({
   service: Object as PropType<ServiceType>,
 });
+
+const config = useRuntimeConfig();
 
 </script>
 
